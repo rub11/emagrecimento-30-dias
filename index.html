@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emagrecimento Transformador | Seu Corpo, Sua História</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #FF6B8B;
+            --secondary: #FFA7B9;
+            --accent: #8A4FFF;
+            --light: #FFF5F7;
+            --dark: #4A2C5F;
+            --success: #8BD3BB;
+            --text: #4A2C5F;
+            --text-light: #8C7AA0;
+            --white: #FFFFFF;
+            --shadow: 0 5px 15px rgba(138, 79, 255, 0.15);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text);
+            background: linear-gradient(135deg, var(--light) 0%, #fff0f3 100%);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--accent);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0 40px;
+            background: linear-gradient(135deg, rgba(255,182,193,0.1) 0%, rgba(255,182,193,0.05) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: -150px;
+            right: -150px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--secondary) 0%, transparent 70%);
+            opacity: 0.2;
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+            position: relative;
+        }
+
+        .hero h1 span::after {
+            content: "";
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 15px;
+            background: rgba(255, 107, 139, 0.3);
+            z-index: -1;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--text-light);
+            max-width: 90%;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: var(--white);
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 20px rgba(138, 79, 255, 0.3);
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(138, 79, 255, 0.4);
+        }
+
+        .cta-button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .cta-button:hover::before {
+            opacity: 1;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Benefits Section */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .section-title h2::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .benefit-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(138, 79, 255, 0.2);
+        }
+
+        .benefit-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--white);
+            font-size: 30px;
+        }
+
+        .benefit-card h3 {
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .benefit-card p {
+            color: var(--text-light);
+        }
+
+        /* Pricing Section */
+        .pricing {
+            background: linear-gradient(135deg, rgba(138, 79, 255, 0.05) 0%, rgba(255, 182, 193, 0.05) 100%);
+        }
+
+        .pricing-cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .pricing-card {
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            padding: 40px;
+            text-align: center;
+            width: 100%;
+            max-width: 450px;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .pricing-card:hover {
+            transform: scale(1.03);
+        }
+
+        .popular {
+            border: 2px solid var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .popular-tag {
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: var(--primary);
+            color: var(--white);
+            padding: 8px 40px;
+            transform: rotate(45deg);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .pricing-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .price {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin: 20px 0;
+            position: relative;
+            display: inline-block;
+        }
+
+        .price small {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            position: absolute;
+            top: 0;
+            left: -20px;
+        }
+
+        .price-info {
+            color: var(--text-light);
+            margin-bottom: 30px;
+        }
+
+        .pricing-features {
+            text-align: left;
+            margin: 30px 0;
+        }
+
+        .pricing-features li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            color: var(--text);
+        }
+
+        .pricing-features li i {
+            color: var(--success);
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        .pricing-card .cta-button {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        /* Bonus Section */
+        .bonus-section {
+            background: linear-gradient(135deg, rgba(255, 107, 139, 0.05) 0%, rgba(255, 182, 193, 0.05) 100%);
+        }
+
+        .bonus-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+        }
+
+        .bonus-intro h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .bonus-intro p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .bonus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .bonus-card {
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+        }
+
+        .bonus-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(138, 79, 255, 0.2);
+        }
+
+        .bonus-image {
+            min-width: 100px;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .bonus-number {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: var(--accent);
+            color: var(--white);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .bonus-content {
+            padding: 20px;
+            flex: 1;
+        }
+
+        .bonus-title {
+            font-size: 1.2rem;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .bonus-description {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .bonus-price {
+            font-size: 0.9rem;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .bonus-price s {
+            color: var(--text-light);
+            margin-right: 10px;
+        }
+
+        .bonus-price span {
+            color: var(--success);
+            font-weight: 700;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            position: relative;
+        }
+
+        .testimonials::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70%;
+            background: linear-gradient(135deg, rgba(138, 79, 255, 0.05) 0%, rgba(255, 182, 193, 0.05) 100%);
+            z-index: -1;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: """;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 5rem;
+            color: var(--secondary);
+            opacity: 0.2;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .testimonial-content {
+            margin-bottom: 20px;
+            color: var(--text-light);
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 600;
+            margin-right: 15px;
+        }
+
+        .author-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+
+        .author-info p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Guarantee Section */
+        .guarantee {
+            text-align: center;
+            background: linear-gradient(135deg, var(--success) 0%, #8BD3BB 100%);
+            border-radius: 20px;
+            padding: 50px;
+            margin: 80px 0;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .guarantee::before {
+            content: "";
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .guarantee h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .guarantee p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* FAQ Section */
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .faq-question {
+            background: var(--white);
+            padding: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question i {
+            transition: var(--transition);
+        }
+
+        .faq-answer {
+            background: rgba(138, 79, 255, 0.05);
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 20px;
+            max-height: 500px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: var(--white);
+            padding: 70px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: var(--light);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-links a i {
+            margin-right: 10px;
+            width: 20px;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--light);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero p {
+                max-width: 100%;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .price {
+                font-size: 2.8rem;
+            }
+            
+            .pricing-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .guarantee {
+                padding: 30px 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                padding: 60px 0 30px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <i class="fas fa-heart"></i>
+                    Transformação corporal
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#beneficios">Benefícios</a></li>
+                    <li><a href="#planos">Planos</a></li>
+                    <li><a href="#bonus">Bônus</a></li>
+                    <li><a href="#depoimentos">Depoimentos</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Perca de 4 a 6 Kilos <span>em 21 Dias </span></h1>
+                    <p>Descubra o método revolucionário que já ajudou milhares de mulheres a conquistarem o corpo dos sonhos sem dietas malucas ou exercícios exaustivos.</p>
+                  
+                </div>
+                <div class="hero-image">
+                    <img src="img/Gemini_Generated_Image_1t1kwq1t1kwq1t1k.png" alt="Mulher feliz após emagrecer">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="section" id="beneficios">
+        <div class="container">
+            <div class="section-title">
+                <h2> Você também já se pegou segurando a barriga na frente do espelho só pra imaginar como seria se ela sumisse… mas logo desistiu porque acha que não vai ter tempo nem força de vontade para mudar? </h2>
+                <p>Um método completo desenvolvido especialmente para o corpo feminino</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-weight"></i>
+                    </div>
+                    <h3>Perda de Peso Saudável</h3>
+                    <p>Emagreça de forma consistente sem prejudicar sua saúde ou metabolismo.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-apple-alt"></i>
+                    </div>
+                    <h3>Alimentação Sem Restrições</h3>
+                    <p>Aprenda a comer de tudo sem culpa, com foco em nutrição e prazer.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Saúde e Bem-Estar</h3>
+                    <p>Melhore sua saúde, disposição e qualidade de vida com nosso método.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Mindset Vencedor</h3>
+                    <p>Desenvolva uma mentalidade forte para superar obstáculos e manter resultados.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Comunidade Apoiadora</h3>
+                    <p>Conecte-se com outras mulheres na mesma jornada de transformação.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-infinity"></i>
+                    </div>
+                    <h3>Resultados Permanentes</h3>
+                    <p>Método sustentável que ensina hábitos para manter o peso ideal sempre.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    
+
+    <!-- Bonus Section -->
+    <section class="section bonus-section" id="bonus">
+        <div class="container">
+            <div class="bonus-intro">
+                <h2 style="font-size: 2em;"> 15 Sistemas de Bônus Exclusivos para emagrecer aida mais.</h2>
+                <p style="font-size: 1.5rem;">Valor total de mais de R$ 1.600 em bônus - Hoje GRÁTIS com o Plano Completo!</p>
+            </div>
+            <div class="bonus-grid">
+                <!-- Bônus cards serão inseridos aqui -->
+                <!-- Bot 1 -->
+                <div class="bonus-card">
+                    <div class="bonus-image">
+                       <img style="border-inline-end-width: 50px; width: 100%;" src="img/cadu.png" alt="">
+                    </div>
+                    <div class="bonus-content">
+                        <h3 class="bonus-title">Cadu, o Chef Anti-Caos</h3>
+                        <p class="bonus-description">Bonequinho redondo e simpático com avental azul claro e chapéu de chef levemente torto. Sorriso largo, bochechas rosadas, olhos pretos brilhantes.</p>
+                        <div class="bonus-price">
+                            <s>R$97,00</s> <span>HOJE GRÁTIS</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bot 2 -->
+                <div class="bonus-card">
+                    <div class="bonus-image">
+                        <img style="border-inline-end-width: 50px; width: 100%;" src="img/gigi.png" alt="">
+                    </div>
+                    <div class="bonus-content">
+                        <h3 class="bonus-title">Gigi, a Guardiã da Geladeira</h3>
+                        <p class="bonus-description">Bonequinha em forma de gotinha rechonchuda, usando tiara verde menta. Vestido branco estampado de frutas coloridas, segurando lista holográfica.</p>
+                        <div class="bonus-price">
+                            <s>R$127,00</s> <span>HOJE GRÁTIS</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bot 3 -->
+                <div class="bonus-card">
+                    <div class="bonus-image">
+                      <img style="border-inline-end-width: 50px; width: 100%;" src="img/lia.png" alt="">
+                    </div>
+                    <div class="bonus-content">
+                        <h3 class="bonus-title">Lia, a Líder do Checklist</h3>
+                        <p class="bonus-description">Bonequinha magrinha e oval, cabelo rosa pastel preso em maria-chiquinhas. Veste uniforme amarelo claro com bolsos cheios de post-its.</p>
+                        <div class="bonus-price">
+                            <s>R$87,00</s> <span>HOJE GRÁTIS</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bot 4 -->
+                <div class="bonus-card">
+                    <div class="bonus-image">
+                         <img style="border-inline-end-width: 50px; width: 100%;" src="img/bella.png" alt="">
+                    </div>
+                    <div class="bonus-content">
+                        <h3 class="bonus-title">Bella do Espelho</h3>
+                        <p class="bonus-description">Bonequinha delicada, corpo alongado e elegante. Vestido lilás brilhante com textura de vidro. Cabelos ondulados roxos presos de lado.</p>
+                        <div class="bonus-price">
+                            <s>R$137,00</s> <span>HOJE GRÁTIS</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bot 5 -->
+                <div class="bonus-card">
+                    <div class="bonus-image">
+                         <img style="border-inline-end-width: 50px; width: 100%;" src="img/nina.png" alt="">
+                    </div>
+                    <div class="bonus-content">
+                        <h3 class="bonus-title">Nina, a Ninja do Alongamento</h3>
+                        <p class="bonus-description">Bonequinha baixinha, redondinha, corpo estilo chibi. Veste kimono roxo com faixa branca. Segura tapetinho de yoga enrolado.</p>
+                        <div class="bonus-price">
+                            <s>R$107,00</s> <span>HOJE GRÁTIS</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bot 6 -->
+                <div class="bonus-card">
+                    <div class="bonus-image">
+                       <img style="border-inline-end-width: 50px; width: 100%;" src="img/soso.png" alt="">
+                    </div>
+                    <div class="bonus-content">
+                        <h3 class="bonus-title">Soso, o Sussurro da Meditação</h3>
+                        <p class="bonus-description">Mascote fofinho em forma de nuvem perolada com pontinhos cintilantes. Olhos sempre fechados, expressão serena, bochechas levemente azuladas.</p>
+                        <div class="bonus-price">
+                            <s>R$97,00</s> <span>HOJE GRÁTIS</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bot 7 -->
+                <div class="bonus-card">
+                    <div class="bonus-image">
+                      <img style="border-inline-end-width: 50px; width: 100%;" src="img/tina.png" alt="">
+                    </div>
+                    <div class="bonus-content">
+                        <h3 class="bonus-title">Tina Turbo, Plano SOS</h3>
+                        <p class="bonus-description">Bonequinha atlética, corpo compacto e pronto para ação. Rabo de cavalo azul celeste super alto, roupa fitness fluorescente.</p>
+                        <div class="bonus-price">
+                            <s>R$127,00</s> <span>HOJE GRÁTIS</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bot 8 -->
+                <div class="bonus-card">
+                    <div class="bonus-image">
+                        <img style="border-inline-end-width: 50px; width: 100%;" src="img/vivi.png" alt="">
+                    </div>
+                    <div class="bonus-content">
+                        <h3 class="bonus-title">Vivi, a Voz da Autoestima</h3>
+                        <p class="bonus-description">Bonequinha charmosa, cabelo ruivo cacheado volumoso. Vestido coral vibrante, sorriso caloroso. Tem microfone dourado no peito.</p>
+                        <div class="bonus-price">
+                            <s>R$147,00</s> <span>HOJE GRÁTIS</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bot 9 -->
+                <div class="bonus-card">
+                    <div class="bonus-image">
+                        <img style="border-inline-end-width: 50px; width: 100%;" src="img/mila.png" alt="">
+                    </div>
+                    <div class="bonus-content">
+                        <h3 class="bonus-title">Mila, a Guardiã do Planner</h3>
+                        <p class="bonus-description">Bonequinha elegante, corpo esguio e postura confiante. Vestido azul claro estampado com mini-calendários. Segura planner holográfico.</p>
+                        <div class="bonus-price">
+                            <s>R$137,00</s> <span>HOJE GRÁTIS</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bot 10 -->
+                <div class="bonus-card">
+                    <div class="bonus-image">
+                         <img style="border-inline-end-width: 50px; width: 100%;" src="img/docinho.png" alt="">
+                    </div>
+                    <div class="bonus-content">
+                        <h3 class="bonus-title">Docinho, Mestre das Receitas</h3>
+                        <p class="bonus-description">Bonequinho rechonchudo em forma de cupcake, chapéu de chef com morango gigante. Bochechas cor de rosa, olhos pretos grandes e brilhantes.</p>
+                        <div class="bonus-price">
+                            <s>R$157,00</s> <span>HOJE GRÁTIS</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bot 11 -->
+                <div class="bonus-card">
+                    <div class="bonus-image">
+                        <img style="border-inline-end-width: 50px; width: 100%;" src="img/luli.png" alt="">
+                    </div>
+                    <div class="bonus-content">
+                        <h3 class="bonus-title">Luli, Treino com os Filhos</h3>
+                        <p class="bonus-description">Bonequinha pequenininha, corpo miúdo, usando macacão estampado de corações. Cabelo castanho preso em dois coquinhos, sorriso largo.</p>
+                        <div class="bonus-price">
+                            <s>R$117,00</s> <span>HOJE GRÁTIS</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bot 12 -->
+                <div class="bonus-card">
+                    <div class="bonus-image">
+                    <img style="border-inline-end-width: 50px; width: 100%;" src="img/cora.png" alt="">
+                    </div>
+                    <div class="bonus-content">
+                        <h3 class="bonus-title">Cora, do Diário de Emoções</h3>
+                        <p class="bonus-description">Bonequinha delicada em formato de coração rosa claro, textura acetinada. Segura caderninho dourado, olhos fechados com cílios longos.</p>
+                        <div class="bonus-price">
+                            <s>R$127,00</s> <span>HOJE GRÁTIS</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bot 13 -->
+                <div class="bonus-card">
+                    <div class="bonus-image">
+                         <img style="border-inline-end-width: 50px; width: 100%;" src="img/dora.png" alt="">
+                    </div>
+                    <div class="bonus-content">
+                        <h3 class="bonus-title">Dora, a Doutora da Postura</h3>
+                        <p class="bonus-description">Bonequinha alta e elegante, com bastão de pilates na mão. Roupa branca de pilates com detalhes cinza. Cabelo preto preso em coque clássico.</p>
+                        <div class="bonus-price">
+                            <s>R$137,00</s> <span>HOJE GRÁTIS</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bot 14 -->
+                <div class="bonus-card">
+                    <div class="bonus-image">
+                        <img style="border-inline-end-width: 50px; width: 100%;" src="img/lila.png" alt="">
+                    </div>
+                    <div class="bonus-content">
+                        <h3 class="bonus-title">Lila, a Líder da Comunidade</h3>
+                        <p class="bonus-description">Bonequinha moderna, cabelo lilás liso até o ombro. Blusa roxa clara com símbolo de rede, segurando celular holográfico mostrando ícones.</p>
+                        <div class="bonus-price">
+                            <s>R$147,00</s> <span>HOJE GRÁTIS</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bot 15 -->
+                <div class="bonus-card">
+                    <div class="bonus-image">
+                        <img style="border-inline-end-width: 50px; width: 100%;" src="img/zara.png" alt="">
+                    </div>
+                    <div class="bonus-content">
+                        <h3 class="bonus-title">Zaza, Guardiã das Vitórias</h3>
+                        <p class="bonus-description">Bonequinha gordinha em forma de troféu dourado brilhante. Olhos castanho escuro, sorriso largo com covinhas. Segura bandeirinha "Conseguiu!".</p>
+                        <div class="bonus-price">
+                            <s>R$167,00</s> <span>HOJE GRÁTIS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials" id="depoimentos">
+        <div class="container">
+            <div class="section-title">
+                <h2>Histórias de Sucesso</h2>
+                <p>Veja o que nossas clientes estão dizendo</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-content">"Perdi 18kg em 4 meses com o programa! Finalmente encontrei um método que respeita meu corpo e me ensinou a me amar durante o processo. A comunidade de apoio fez toda diferença!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">M</div>
+                        <div class="author-info">
+                            <h4>Mariana Silva</h4>
+                            <p>Perdeu 8kg</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-content">"Os bônus do plano completo valeram cada centavo! Especialmente o Cadu, o Chef Anti-Caos que me ajudou a organizar minha alimentação. Minha relação com a comida mudou completamente."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">C</div>
+                        <div class="author-info">
+                            <h4>Carolina Mendes</h4>
+                            <p>Perdeu 12kg</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-content">"Depois de 3 filhos, meu corpo não era mais o mesmo. Este programa me devolveu a autoestima e a saúde. Os exercícios são adaptáveis e posso fazer em casa, perfeito para mães ocupadas!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">J</div>
+                        <div class="author-info">
+                            <h4>Juliana Almeida</h4>
+                            <p>Perdeu 9kg</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- Pricing Section -->
+    <section class="section pricing" id="planos">
+        <div class="container">
+            <div class="section-title">
+                <h2>Escolha Seu Plano Ideal</h2>
+                <p>Invista em você mesma e transforme sua vida</p>
+            </div>
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <h3>Plano Essencial</h3>
+                    <div class="price"><small>R$</small>27,99</div>
+                    <p class="price-info">Acesso completo ao método de emagrecimento</p>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check-circle"></i> Programa completo de 30 DIAS</li>
+                    
+                        <li><i class="fas fa-check-circle"></i> Rotinas de exercícios em casa</li>
+                        
+                        <li><i class="fas fa-check-circle"></i> Suporte por e-mail</li>
+                    </ul>
+                    <a href="#" class="cta-button">Quero o Plano Essencial</a>
+                </div>
+                <div class="pricing-card popular">
+                    <div class="popular-tag">MAIS POPULAR</div>
+                    <h3>Plano Completo</h3>
+                    <div class="price"><small>R$</small>47,99</div>
+                    <p class="price-info">Tudo do Plano Essencial + 15 bônus especiais</p>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check-circle"></i> Tudo do Plano Essencial</li>
+                        <li><i class="fas fa-check-circle"></i> + 15 bônus exclusivos (R$ 1.600+ de valor)</li>
+                        <li><i class="fas fa-check-circle"></i> Suporte prioritário</li>
+                 
+                    </ul>
+                    <a href="#" class="cta-button">Quero o Plano Completo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Guarantee Section -->
+    <div class="container">
+        <div class="guarantee">
+            <h2>Garantia de 30 Dias</h2>
+            <p>Experimente nosso programa sem risco! Se em 30 dias você não estiver completamente satisfeita com os resultados, devolveremos 100% do seu investimento. Sem perguntas, sem complicações.</p>
+            <a href="#planos" class="cta-button">Começar Agora com Segurança</a>
+        </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="section" id="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Perguntas Frequentes</h2>
+                <p>Tire suas dúvidas sobre o programa</p>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Quanto tempo leva para ver resultados? <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>A maioria das nossas clientes começa a notar diferenças significativas nas primeiras 2-4 semanas. No entanto, cada corpo responde de maneira única. Nosso foco é em mudanças sustentáveis e saúde a longo prazo.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Preciso de equipamentos especiais para os exercícios? <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Não! Todos os exercícios podem ser feitos em casa com o peso do corpo ou itens domésticos simples. Para quem quiser intensificar, sugerimos pesos leves e resistência elástica, mas não são obrigatórios.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Como funcionam os bônus do Plano Completo? <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Os 15 bônus são materiais exclusivos que você recebe imediatamente após a compra do Plano Completo. São guias práticos, ferramentas e recursos adicionais que complementam o programa principal.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        O programa é adequado para quem tem problemas de saúde? <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Nosso programa é desenvolvido com base em princípios de saúde e nutrição, mas sempre recomendamos consultar seu médico antes de iniciar qualquer novo plano de alimentação ou exercícios, especialmente se você tem condições de saúde pré-existentes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <script>
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+        
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
